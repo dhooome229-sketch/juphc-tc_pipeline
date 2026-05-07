@@ -5,3 +5,10 @@ metadata:
 spec:
   pipelineRef:
     name: tax-calculator-pipeline
+  params:
+    - name: image
+      value: us.icr.io/sn-labs-$SN_USER/tax-calculator:v2
+  workspaces:
+    - name: pipeline-workspace
+      persistentVolumeClaim:
+        claimName: pipeline-pvc

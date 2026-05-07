@@ -4,11 +4,16 @@ metadata:
   name: tax-calculator-pipeline
 spec:
   tasks:
-    - name: test
+    - name: npminstall
       taskRef:
-        name: test-task
-    - name: build-and-push
+        name: npm
+    - name: tests
       taskRef:
-        name: build-push-task
+        name: Jasmine
       runAfter:
-        - test
+        - npminstall
+    - name: build tasks
+      taskRef:
+        name: build
+      runAfter:
+        - tests
