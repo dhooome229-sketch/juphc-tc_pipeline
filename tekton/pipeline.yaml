@@ -12,7 +12,8 @@ spec:
         name: Jasmine
       runAfter:
         - npminstall
-    - name: build tasks
+    - name: build
+      # build tasks
       taskRef:
         name: build
       runAfter:
