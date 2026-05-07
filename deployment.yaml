@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tax-calculator-deployment
+  labels:
+    app: tax-calculator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tax-calculator
+  template:
+    metadata:
+      labels:
+        app: tax-calculator
+    spec:
+      containers:
+      - name: tax-calculator
+        image: us.icr.io/sn-labs-$SN_USER/tax-calculator:v2
+        ports:
+        - containerPort: 8080

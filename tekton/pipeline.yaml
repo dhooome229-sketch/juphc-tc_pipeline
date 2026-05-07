@@ -1,0 +1,14 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: tax-calculator-pipeline
+spec:
+  tasks:
+    - name: test
+      taskRef:
+        name: test-task
+    - name: build-and-push
+      taskRef:
+        name: build-push-task
+      runAfter:
+        - test
